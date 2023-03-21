@@ -17,7 +17,4 @@ COPY ./conf/nginx.conf /var/www/html/conf/nginx/nginx-site.conf
 RUN composer create-project --no-scripts dadlian/wadapi:${VERSION} project
 
 WORKDIR project
-RUN mv src/* .
-RUN rm -rf src
-
 CMD ["/wadapi_entrypoint.sh"]
