@@ -14,7 +14,7 @@ COPY ./bin/wadapi_entrypoint.sh /wadapi_entrypoint.sh
 COPY ./conf/nginx.conf /var/www/html/conf/nginx/nginx-site.conf
 
 # Create blank wadapi project
-RUN composer create-project --no-scripts dadlian/wadapi:${VERSION} project
+RUN composer create-project --no-scripts dadlian/wadapi:${VERSION} wadapi
 
-WORKDIR project
+WORKDIR wadapi
 CMD ["/wadapi_entrypoint.sh"]
