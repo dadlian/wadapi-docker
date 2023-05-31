@@ -2,9 +2,11 @@
 
 # Install user composer libraries
 cd /var/www/html/wadapi
-while read dependency; do
-  composer require $dependency
-done </var/www/html/wadapi/project/dependencies.txt
+if test -f "/var/www/html/wadapi/project/dependencies.txt"; then
+	while read dependency; do
+	  composer require $dependency
+	done </var/www/html/wadapi/project/dependencies.txt
+fi
 
 # Substitue Environment Variables in nGinx conf
 SUBSTR=s~\${BASE_URL}~$BASE_URL~g
