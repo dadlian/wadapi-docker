@@ -2,6 +2,11 @@ FROM richarvey/nginx-php-fpm:latest
 
 ARG VERSION
 
+#Install Bash Utilities
+RUN curl -L https://github.com/a8m/envsubst/releases/download/v1.2.0/envsubst-`uname -s`-`uname -m` -o envsubst
+RUN chmod +x envsubst
+RUN mv envsubst /usr/local/bin
+
 #Install Necessary PHP Extensions and Composer
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
